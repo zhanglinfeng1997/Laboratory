@@ -3,11 +3,31 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Laboratory"
+    xmlns:experiment ="using:Laboratory.exp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <NavigationView Name="NavigationView" SelectionChanged="NavigationView_SelectionChanged">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="Introduction" Name="Introduction" Content="Introduction" Icon="Home"></NavigationViewItem>
+                <NavigationViewItem Tag="Chemistry" Name="Chemistry" Content="Chemistry">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE1CE;"></FontIcon>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="Physics" Name="Physics" Content="Physics" Icon="Home"></NavigationViewItem>
+            </NavigationView.MenuItems>
+            <NavigationView.Content>
+                <Frame Name="MyFrame"></Frame>
+            </NavigationView.Content>
+            <NavigationView.AutoSuggestBox>
+                <AutoSuggestBox QueryIcon="Find"></AutoSuggestBox>
+            </NavigationView.AutoSuggestBox>
+            <NavigationView.Header>
+                Laboratory
+            </NavigationView.Header>
+        </NavigationView>
     </Grid>
 </Page>
