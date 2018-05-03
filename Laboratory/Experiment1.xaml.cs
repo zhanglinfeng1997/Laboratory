@@ -15,14 +15,14 @@ using Windows.UI.Xaml.Navigation;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
-namespace Laboratory
+namespace Laboratory.Experiment
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class BlankPage1 : Page
+    public sealed partial class Experiment1 : Page
     {
-        public BlankPage1()
+        public Experiment1()
         {
             this.InitializeComponent();
         }

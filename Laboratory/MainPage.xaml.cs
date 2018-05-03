@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -24,12 +25,21 @@ namespace Laboratory
     {
         public MainPage()
         {
+            ApplicationView view = ApplicationView.GetForCurrentView();
+            view.TryEnterFullScreenMode();
+            
             this.InitializeComponent();
+
         }
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
 
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(Experiment001));
         }
     }
 }
