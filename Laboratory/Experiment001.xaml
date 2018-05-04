@@ -9,31 +9,13 @@
 
 
     <StackPanel Name="Border" AllowDrop="True" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Height="150" MaxHeight="150"></StackPanel>
 
 
 
 
-        <Canvas Height="600">
-            <TextBlock Name="TB001" VerticalAlignment="Center" FontSize="24" Canvas.Left="20" Canvas.Top="20">拖动右方器材或物质至下方实验区域:</TextBlock>
-            <Image Tag="1" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/jiujingdeng.png" Height="70" Width="70" Canvas.Left="508" Canvas.Top="73"></Image>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/diguan.png" Height="70" Width="70" Canvas.Left="838" Canvas.Top="6"/>
-            <Image Tag="3" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/daoguan.png" Height="70" Width="70" Canvas.Left="913" Canvas.Top="4"/>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/ping.png"  Height="70" Width="70" Canvas.Left="428" Canvas.Top="79"/>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/shaobei.png"  Height="70" Width="70" Canvas.Left="772" Canvas.Top="9"/>
-            <Image Tag="5" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/xiangpisai.png" Height="70" Width="70" Canvas.Left="700" Canvas.Top="10"/>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/xikouping.png" Height="70" Width="70" Canvas.Left="613" Canvas.Top="3"/>
-            <Image Tag="2" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/shuicao.png" Height="70" Width="70" Canvas.Left="517" Canvas.Top="3"/>
-            <Image Tag="4" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/shiguan.png" Height="70" Width="70" Canvas.Left="425" Canvas.Top="11"/>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/kcl.png" Height="70" Width="70" Canvas.Left="723" Canvas.Top="68"/>
-            <Image Tag="7" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/kmno4.png" Height="70" Width="70" Canvas.Left="581" Canvas.Top="72"/>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/mno2.png" Height="70" Width="70" Canvas.Left="646" Canvas.Top="74"/>
-            <Image Tag="6" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/shuiping.png" Height="70" Width="70" Canvas.Left="808" Canvas.Top="83"/>
-
-
-            <Canvas Name="ExpArea" Height="450" Canvas.Top="150">
-
-
-                <Polygon Name="IronSupport" Fill="Black" 
+        <Canvas Height="450" >
+            <Polygon Name="IronSupport" Fill="Black" 
              Points="200,20,
                           200,410,
                           0,410,
@@ -43,7 +25,7 @@
                           210,410,
                            210,20" Canvas.Left="209" Canvas.Top="-14" Height="424" Width="250"
                      />
-                <Polyline Name="AlcoholBurner" StrokeThickness="6" Stroke="Black"  Visibility="Collapsed"
+            <Polyline Name="AlcoholBurner" StrokeThickness="6" Stroke="Black" 
                       Points="
                       70,-10,
                       70,10,
@@ -59,35 +41,31 @@
                       70,90,
                       90,100,
                       80,120,
-                      70,120" Canvas.Left="229" Canvas.Top="255" Height="149" Width="153" RenderTransformOrigin="0.5,0.5">
-                    <Polyline.RenderTransform>
-                        <CompositeTransform ScaleX="1"/>
-                    </Polyline.RenderTransform>
-                </Polyline>
-                <Polyline Name="Alcohol" StrokeThickness="2" Stroke="Black" Visibility="Collapsed"
+                      70,120" Canvas.Left="229" Canvas.Top="255" Height="149" Width="153"/>
+            <Polyline Name="Alcohol" StrokeThickness="2" Stroke="Black" 
                       Points="0,80,140,80" Canvas.Left="229" Canvas.Top="255"/>
-                <Image Source="/Experiment/Image/flame.png" Canvas.Left="261" Canvas.Top="201"></Image>
-                <Polyline Name="Tube" Stroke="Black" StrokeThickness="4" Visibility="Collapsed"
+            <Image Source="/Experiment/Image/flame.png" Canvas.Left="261" Canvas.Top="201"></Image>
+            <Polyline Name="Tube" Stroke="Black" StrokeThickness="4" 
                       Points="4,0,4,160,10,170,20,170,28,160,28,0 " Canvas.Left="345" Canvas.Top="103" Height="174" Width="33" RenderTransformOrigin="0.471,0.188" UseLayoutRounding="False" d:LayoutRounding="Auto"  >
-                    <Polyline.RenderTransform>
-                        <CompositeTransform Rotation="90" TranslateX="53.82" TranslateY="62.231"/>
-                    </Polyline.RenderTransform>
-                    <Polyline.Resources>
-                        <Storyboard x:Name="TubeAni">
-                            <DoubleAnimation Storyboard.TargetName="Tube" 
+                <Polyline.RenderTransform>
+                    <CompositeTransform Rotation="90" TranslateX="53.82" TranslateY="62.231"/>
+                </Polyline.RenderTransform>
+                <Polyline.Resources>
+                    <Storyboard x:Name="TubeAni">
+                        <DoubleAnimation Storyboard.TargetName="Tube" 
                                          Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"   
                                          From="90" To=" 100" Duration="0:0:2"></DoubleAnimation>
-                        </Storyboard>
-                    </Polyline.Resources>
+                    </Storyboard>
+                </Polyline.Resources>
 
-                </Polyline>
-                <Polygon  Name="Clip" Fill="Black" Points="0,0,20,0,20,35,0,35" Visibility="Collapsed"
+            </Polyline>
+            <Polygon  Name="Clip" Fill="Black" Points="0,0,20,0,20,35,0,35" 
                       Canvas.Left="405" Canvas.Top="180" />
-                <Polyline  Name="Sink" Stroke="Black" StrokeThickness="8" Visibility="Collapsed"
+            <Polyline  Name="Sink" Stroke="Black" StrokeThickness="8" 
                        Points="5,0,5,100,400,100,400,0" Canvas.Left="544" Canvas.Top="296" Height="109" Width="403" ToolTipService.ToolTip="Sink"/>
-                <Polygon Name="Water0" Fill="LightBlue" Visibility="Collapsed"
+            <Polygon Name="Water0" Fill="LightBlue" 
          Points="5,10,5,75,395,75,395,10" Canvas.Left="546" Canvas.Top="319" Height="79" Width="402" />
-                <Polyline Stroke="Black" Name="Jar" Visibility="Collapsed"
+            <Polyline Stroke="Black" Name="Jar" 
             StrokeThickness="12"
             Points="80,160,
                       80,130,
@@ -97,107 +75,105 @@
                       0,130,
                       20,130,
                       20,160" Canvas.Left="815" Canvas.Top="212" >
-                    <Polyline.RenderTransform>
-                        <CompositeTransform TranslateX="0"/>
-                    </Polyline.RenderTransform>
-                    <Polyline.Resources>
-                        <Storyboard x:Name="JarAni">
-                            <DoubleAnimation Storyboard.TargetName="Jar"
+                <Polyline.RenderTransform>
+                    <CompositeTransform TranslateX="0"/>
+                </Polyline.RenderTransform>
+                <Polyline.Resources>
+                    <Storyboard x:Name="JarAni">
+                        <DoubleAnimation Storyboard.TargetName="Jar"
                                          Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
                                          From="0" To="-93" Duration="0:0:2"/>
-                        </Storyboard>
-                    </Polyline.Resources>
-                </Polyline>
-                <Polygon Name="Water" Fill="LightBlue" Visibility="Collapsed"
+                    </Storyboard>
+                </Polyline.Resources>
+            </Polyline>
+            <Polygon Name="Water" Fill="LightBlue"
          Points="100,130,
                       100,0,
                       0,0,
                       0,130" Canvas.Left="814" Canvas.Top="212" >
-                    <Polygon.RenderTransform>
-                        <CompositeTransform TranslateX="0" />
-                    </Polygon.RenderTransform>
-                    <Polygon.Resources>
-                        <Storyboard x:Name="WaterAni">
-                            <DoubleAnimation Storyboard.TargetName="Water" 
+                <Polygon.RenderTransform>
+                    <CompositeTransform TranslateX="0" />
+                </Polygon.RenderTransform>
+                <Polygon.Resources>
+                    <Storyboard x:Name="WaterAni">
+                        <DoubleAnimation Storyboard.TargetName="Water" 
                                          Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"   
                                          From="0" To="-92" Duration="0:0:2"></DoubleAnimation>
-                        </Storyboard>
+                    </Storyboard>
 
-                        <Storyboard x:Name="Air1">
-                            <DoubleAnimation Storyboard.TargetName="Water" Storyboard.TargetProperty="Opacity"
+                    <Storyboard x:Name="Air1">
+                        <DoubleAnimation Storyboard.TargetName="Water" Storyboard.TargetProperty="Opacity"
                                          From="1.0" To="0.0" Duration="0:0:2"></DoubleAnimation>
-                        </Storyboard>
-                    </Polygon.Resources>
-                </Polygon>
+                    </Storyboard>
+                </Polygon.Resources>
+            </Polygon>
 
-                <Polygon  Name="Rubber" Fill="Black" Points="0,4,20,0,20,24,0,20"  Visibility="Collapsed"
+            <Polygon  Name="Rubber" Fill="Black" Points="0,4,20,0,20,24,0,20"  
                       Canvas.Left="434" Canvas.Top="186" RenderTransformOrigin="-0.905,0.433" Height="26" Width="21">
-                    <Polygon.RenderTransform>
-                        <CompositeTransform Rotation="0" />
-                    </Polygon.RenderTransform>
-                    <Polygon.Resources>
-                        <Storyboard x:Name="RubberAni">
-                            <DoubleAnimation Storyboard.TargetName="Rubber" 
+                <Polygon.RenderTransform>
+                    <CompositeTransform Rotation="0" />
+                </Polygon.RenderTransform>
+                <Polygon.Resources>
+                    <Storyboard x:Name="RubberAni">
+                        <DoubleAnimation Storyboard.TargetName="Rubber" 
                                          Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"   
                                          From="0" To=" 10" Duration="0:0:2"></DoubleAnimation>
-                        </Storyboard>
-                    </Polygon.Resources>
-                </Polygon>
-                <Ellipse Name="KMnO4" Width="30"  Visibility="Collapsed" 
+                    </Storyboard>
+                </Polygon.Resources>
+            </Polygon>
+            <Ellipse Name="KMnO4" Width="30"  Visibility="Collapsed"
                      Height="7"
                      Fill="Purple" Canvas.Left="287" Canvas.Top="182.25" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-                    <Ellipse.RenderTransform>
-                        <CompositeTransform Rotation="10.35"/>
-                    </Ellipse.RenderTransform>
+                <Ellipse.RenderTransform>
+                    <CompositeTransform Rotation="10.35"/>
+                </Ellipse.RenderTransform>
 
-                </Ellipse>
-                <Polyline Name="Pipe" Stroke="Black" Visibility="Collapsed"
+            </Ellipse>
+            <Polyline Name="Pipe" Stroke="Black"
             StrokeThickness="6"
             Points="0,2,
                       100,2,
                       320,180,
                       340,160" Canvas.Left="425" Canvas.Top="198" Height="189" Width="355" RenderTransformOrigin="-0.025,-0.001" >
-                    <Polyline.RenderTransform>
-                        <CompositeTransform Rotation="0" />
-                    </Polyline.RenderTransform>
-                    <Polyline.Resources>
-                        <Storyboard x:Name="PipeAni">
-                            <DoubleAnimation Storyboard.TargetName="Pipe" 
+                <Polyline.RenderTransform>
+                    <CompositeTransform Rotation="0" />
+                </Polyline.RenderTransform>
+                <Polyline.Resources>
+                    <Storyboard x:Name="PipeAni">
+                        <DoubleAnimation Storyboard.TargetName="Pipe" 
                                          Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"   
                                          From="0" To=" 2" Duration="0:0:2"></DoubleAnimation>
-                        </Storyboard>
-                    </Polyline.Resources>
-                </Polyline>
-                <Ellipse Name="Bubble" Width="8" Height="8" Visibility="Collapsed"
+                    </Storyboard>
+                </Polyline.Resources>
+            </Polyline>
+            <Ellipse Name="Bubble" Width="8" Height="8" Visibility="Collapsed"
                      Fill="White" Canvas.Left="754" Canvas.Top="360">
-                    <Ellipse.RenderTransform>
-                        <CompositeTransform TranslateY="0"></CompositeTransform>
-                    </Ellipse.RenderTransform>
-                    <Ellipse.Resources>
-                        <Storyboard x:Name="BubbleUp">
-                            <DoubleAnimation Storyboard.TargetName="Bubble"
+                <Ellipse.RenderTransform>
+                    <CompositeTransform TranslateY="0"></CompositeTransform>
+                </Ellipse.RenderTransform>
+                <Ellipse.Resources>
+                    <Storyboard x:Name="BubbleUp">
+                        <DoubleAnimation Storyboard.TargetName="Bubble"
                                          Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
-                                         From="0" To="-100" Duration="0:0:1" RepeatBehavior="Forever"/>
-                        </Storyboard>
-                    </Ellipse.Resources>
-                </Ellipse>
-                <TextBlock Name="Oxygen" Text="O2" FontSize="36" Visibility="Collapsed" Opacity="0.0"
+                                         From="0" To="-100" Duration="0:0:2" RepeatBehavior="Forever"/>
+                    </Storyboard>
+                </Ellipse.Resources>
+            </Ellipse>
+            <TextBlock Name="Oxygen" Text="O2" FontSize="36" Visibility="Collapsed" Opacity="0.0"
                        Height="auto" Canvas.Left="759" Canvas.Top="252">
-                    <TextBlock.Resources>
-                        <Storyboard x:Name="O2">
-                            <DoubleAnimation Storyboard.TargetName="Oxygen" Storyboard.TargetProperty="Opacity"
+                <TextBlock.Resources>
+                    <Storyboard x:Name="O2">
+                        <DoubleAnimation Storyboard.TargetName="Oxygen" Storyboard.TargetProperty="Opacity"
                                          From="0.0" To="1.0" Duration="0:0:2"></DoubleAnimation>
-                        </Storyboard>
-                    </TextBlock.Resources>
-                </TextBlock>
-                <Button Click="Button_Click">0</Button>
-                <Button Click="Button_Click_1" Canvas.Left="37" Canvas.Top="4">1</Button>
-                <Button Click="Button_Click_2" Canvas.Left="75" Canvas.Top="6">2</Button>
-                <Button Click="Button_Click_3" Canvas.Left="111" Canvas.Top="6">3</Button>
-                <Button Click="Button_Start"  Canvas.Left="156" Canvas.Top="9">start</Button>
-                <TextBlock Canvas.Left="399" Canvas.Top="405" FontSize="24" FontWeight="Bold" >先按start,然后做拖放器材，最后按0，1，2，3</TextBlock>
-            </Canvas>
+                    </Storyboard>
+                </TextBlock.Resources>
+            </TextBlock>
+            <Button Click="Button_Click">0</Button>
+            <Button Click="Button_Click_1" Canvas.Left="37" Canvas.Top="4">1</Button>
+            <Button Click="Button_Click_2" Canvas.Left="75" Canvas.Top="6">2</Button>
+            <Button Click="Button_Click_3" Canvas.Left="111" Canvas.Top="6">3</Button>
         </Canvas>
+
 
     </StackPanel>
 </Page>
