@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Input;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,9 +23,12 @@ namespace Laboratory
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
+
     public sealed partial class Experiment001 : Page
 
     {
+
+
         private double originX;         //记录图片原来位置
         private double originY;         //记录图片原来位置
         private int next = 0;               //是否全部显示的标记
@@ -46,29 +50,34 @@ namespace Laboratory
             RubberAni.Begin();
             PipeAni.Begin();
             KMnO4.Visibility = Visibility.Visible;
+            TubeAni.Completed += (s, e1) => test();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e) //移动瓶子的动画,用于回答预热的问题之后
         {
             JarAni.Begin();
             WaterAni.Begin();
+            WaterAni.Completed += (s, e1) => test();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e) //冒气泡的动画，用于回答何时收集的问题之后
         {
             Bubble.Visibility = Visibility.Visible;
             BubbleUp.Begin();
+
+
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e) //收集完毕的动画,用于移走导管的问题开始前
+        private void Button_Click_3(object sender, RoutedEventArgs e) //收集完毕的动画,用于移走导管的问题后
         {
+
             BubbleUp.Stop();
             Bubble.Visibility = Visibility.Collapsed;
             Oxygen.Visibility = Visibility.Visible;
             Air1.Begin();
             O2.Begin();
-            
-            
+            O2.Completed += (s, e1) => test();
+
         }
 
         private void Image_PointerPressed(object sender, PointerRoutedEventArgs e) //按下某一器材的事件
@@ -170,16 +179,85 @@ namespace Laboratory
                 }
 
               }
-            await Task.Delay(2000);
+            await Task.Delay(1000);
+            //播放音效
             TB001.Visibility = Visibility.Collapsed;
                 ExpArea.SetValue(Canvas.TopProperty, 50);
+            e1.Visibility = Visibility.Collapsed;
+            e2.Visibility = Visibility.Collapsed;
+            e3.Visibility = Visibility.Collapsed;
+            e4.Visibility = Visibility.Collapsed;
+            e5.Visibility = Visibility.Collapsed;
+            e6.Visibility = Visibility.Collapsed;
+            MessageDialog d = new MessageDialog("器材组装完毕！");
+           await  d.ShowAsync();
+
+           
+
+
 
             return 0;
         }
 
-        private async void Button_Start(object sender, RoutedEventArgs e)//此按钮事件为输入化学方程式完毕后的"下一步"按钮所需要完成的事件
+
+
+        private async void StartExp_Click(object sender, RoutedEventArgs e)
         {
+            QuestionDialog dialog = new QuestionDialog("2", "K2MnO4", "1", "1");
+           await dialog.ShowAsync();
+            Title.Visibility = Visibility.Collapsed;
+            ExpBorder.Visibility = Visibility.Visible;
             await NextSessionAsync();
+            QuestionArea.AnswerCorrectly += Animation1;
+
+
+
         }
+
+        private void test()
+        {
+            MessageDialog d = new MessageDialog("aha");
+            d.ShowAsync();
+        }
+
+
+
+
+        private void Animation1() //旋转试管的动画,用于回答试管问题之后
+        {
+            TubeAni.Begin();
+            RubberAni.Begin();
+            PipeAni.Begin();
+            KMnO4.Visibility = Visibility.Visible;
+            TubeAni.Completed += (s, e1) => test();
+        }
+
+        private void Animation2() //移动瓶子的动画,用于回答预热的问题之后
+        {
+            JarAni.Begin();
+            WaterAni.Begin();
+            WaterAni.Completed += (s, e1) => test();
+        }
+
+        private void Animation3() //冒气泡的动画，用于回答何时收集的问题之后
+        {
+            Bubble.Visibility = Visibility.Visible;
+            BubbleUp.Begin();
+
+
+        }
+
+        private void Animation4() //收集完毕的动画,用于移走导管的问题后
+        {
+
+            BubbleUp.Stop();
+            Bubble.Visibility = Visibility.Collapsed;
+            Oxygen.Visibility = Visibility.Visible;
+            Air1.Begin();
+            O2.Begin();
+            O2.Completed += (s, e1) => test();
+
+        }
+
     }
 }

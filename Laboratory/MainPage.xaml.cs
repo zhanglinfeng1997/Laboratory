@@ -40,7 +40,6 @@ namespace Laboratory
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             MyFrame.Navigate(typeof(Experiment001));
-            QuestionFrame.Navigate(typeof(BlankPage2));
         }
     }
 }

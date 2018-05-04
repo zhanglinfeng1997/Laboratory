@@ -5,28 +5,38 @@
     xmlns:local="using:Laboratory"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" MaxHeight="600" MaxWidth="1600">
+    mc:Ignorable="d" MaxHeight="1080" MaxWidth="1400">
 
 
-    <StackPanel Name="Border" AllowDrop="True" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Name="Border" AllowDrop="True" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <StackPanel Name="Title" VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" FontSize="48">实验室制氧气</TextBlock>
+            <Button Click="StartExp_Click" Margin="0,20" HorizontalAlignment="Center"  Name="StartExp" FontSize="36">开始实验</Button>
 
 
 
 
-        <Canvas Height="600">
+        </StackPanel>
+
+
+
+        <Canvas Name="ExpBorder" Height="600" Visibility="Collapsed">
+            
+            
             <TextBlock Name="TB001" VerticalAlignment="Center" FontSize="24" Canvas.Left="20" Canvas.Top="20">拖动右方器材或物质至下方实验区域:</TextBlock>
             <Image Tag="1" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/jiujingdeng.png" Height="70" Width="70" Canvas.Left="508" Canvas.Top="73"></Image>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/diguan.png" Height="70" Width="70" Canvas.Left="838" Canvas.Top="6"/>
+            <Image Tag="0" Name="e1" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/diguan.png" Height="70" Width="70" Canvas.Left="838" Canvas.Top="6"/>
             <Image Tag="3" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/daoguan.png" Height="70" Width="70" Canvas.Left="913" Canvas.Top="4"/>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/ping.png"  Height="70" Width="70" Canvas.Left="428" Canvas.Top="79"/>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/shaobei.png"  Height="70" Width="70" Canvas.Left="772" Canvas.Top="9"/>
+            <Image Tag="0" Name="e2" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/ping.png"  Height="70" Width="70" Canvas.Left="428" Canvas.Top="79"/>
+            <Image Tag="0" Name="e3" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/shaobei.png"  Height="70" Width="70" Canvas.Left="772" Canvas.Top="9"/>
             <Image Tag="5" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/xiangpisai.png" Height="70" Width="70" Canvas.Left="700" Canvas.Top="10"/>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/xikouping.png" Height="70" Width="70" Canvas.Left="613" Canvas.Top="3"/>
+            <Image Tag="0" Name="e4" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/xikouping.png" Height="70" Width="70" Canvas.Left="613" Canvas.Top="3"/>
             <Image Tag="2" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/shuicao.png" Height="70" Width="70" Canvas.Left="517" Canvas.Top="3"/>
             <Image Tag="4" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/shiguan.png" Height="70" Width="70" Canvas.Left="425" Canvas.Top="11"/>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/kcl.png" Height="70" Width="70" Canvas.Left="723" Canvas.Top="68"/>
+            <Image Tag="0" Name="e6" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/kcl.png" Height="70" Width="70" Canvas.Left="723" Canvas.Top="68"/>
             <Image Tag="7" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/kmno4.png" Height="70" Width="70" Canvas.Left="581" Canvas.Top="72"/>
-            <Image Tag="0" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/mno2.png" Height="70" Width="70" Canvas.Left="646" Canvas.Top="74"/>
+            <Image Tag="0" Name="e5" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/mno2.png" Height="70" Width="70" Canvas.Left="646" Canvas.Top="74"/>
             <Image Tag="6" PointerPressed="Image_PointerPressed" PointerReleased="Image_PointerReleased" PointerMoved="Image_PointerMoved" Source="/Experiment/Image/shuiping.png" Height="70" Width="70" Canvas.Left="808" Canvas.Top="83"/>
 
 
@@ -194,11 +204,14 @@
                 <Button Click="Button_Click_1" Canvas.Left="37" Canvas.Top="4">1</Button>
                 <Button Click="Button_Click_2" Canvas.Left="75" Canvas.Top="6">2</Button>
                 <Button Click="Button_Click_3" Canvas.Left="111" Canvas.Top="6">3</Button>
-                <Button Click="Button_Start"  Canvas.Left="156" Canvas.Top="9">start</Button>
-                <TextBlock Canvas.Left="399" Canvas.Top="405" FontSize="24" FontWeight="Bold" >先按start,然后做拖放器材，最后按0，1，2，3</TextBlock>
+              
+     
             </Canvas>
+            <local:QuestionControl x:Name="QuestionArea" VerticalAlignment="Bottom" Canvas.Left="300"  Canvas.Top="655" />
         </Canvas>
 
-    </StackPanel>
+
+    </Grid>
+
 </Page>
 

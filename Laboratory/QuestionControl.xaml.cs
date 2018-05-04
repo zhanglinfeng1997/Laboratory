@@ -14,27 +14,31 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
+//https://go.microsoft.com/fwlink/?LinkId=234236 上介绍了“用户控件”项模板
 
 namespace Laboratory
 {
-    /// <summary>
-    /// 可用于自身或导航至 Frame 内部的空白页。
-    /// </summary>
-    ///
-    
-    public sealed partial class BlankPage2 : Page
+    internal delegate void QuestionEventHandler();
+
+    public sealed partial class QuestionControl : UserControl
     {
+        internal event QuestionEventHandler AnswerCorrectly;
+
+        public QuestionControl()
+        {
+
+            this.InitializeComponent();
+        }
         int allpoints = 100;
         Question tempQuestion = new Question();
         void InitWithQuestion()
         {
-      //      tempQuestion = new Question();
+            //      tempQuestion = new Question();
             ChooseA.Background = new SolidColorBrush(Colors.AliceBlue);
             ChooseB.Background = new SolidColorBrush(Colors.AliceBlue);
             ChooseC.Background = new SolidColorBrush(Colors.AliceBlue);
             ChooseD.Background = new SolidColorBrush(Colors.AliceBlue);
-      //      ChooseA.Content = "sasass";
+            //      ChooseA.Content = "sasass";
             ChooseA.Content = tempQuestion.ChoiceA;
             ChooseB.Content = tempQuestion.ChoiceB;
             ChooseC.Content = tempQuestion.ChoiceC;
@@ -42,26 +46,24 @@ namespace Laboratory
             String a = "此题分数：" + Convert.ToString(tempQuestion.Points);
             PointsNow.Text = a;
         }
-        public BlankPage2()
-        {
-            this.InitializeComponent();
 
-        }
         public Boolean IsRight(string answer)
         {
-            if (answer == tempQuestion.RightAnswer)
+            if (answer == /*tempQuestion.RightAnswer*/(string)ChooseA.Content)
                 return true;
-            else {
+            else
+            {
                 return false;
             }
         }
         private void ChooseA_Click(object sender, RoutedEventArgs e)
         {
             var choose = (Button)sender;
-           Boolean is_right = IsRight(ChooseA.Content as string);
+            Boolean is_right = IsRight(ChooseA.Content as string);
             if (is_right)
             {
                 choose.Background = new SolidColorBrush(Colors.LightGreen);
+                AnswerCorrectly();
             }
             else
             {
@@ -122,3 +124,4 @@ namespace Laboratory
         }
     }
 }
+
