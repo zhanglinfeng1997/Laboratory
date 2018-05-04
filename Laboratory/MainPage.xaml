@@ -22,7 +22,7 @@
                         <FontIcon Glyph="&#xE1CE;"></FontIcon>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="Exp003" Name="Exp003" Content="金属与硫酸的反应" >
+                <NavigationViewItem Tag="Exp003" Name="Exp003" Content="金属与酸的反应" >
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE1CE;"></FontIcon>
                     </NavigationViewItem.Icon>
