@@ -1,0 +1,33 @@
+﻿<ContentDialog
+    x:Class="Laboratory.QuestionDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Laboratory"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="输入化学反应方程式"
+    PrimaryButtonText="提交"
+    SecondaryButtonText="放弃"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid >
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+            <TextBox x:Name="x_KMNO4" Text="" />
+            <TextBlock x:Name="chmInput1" Width="auto" Text="KMnO4"  VerticalAlignment="Center" />
+            <TextBlock x:Name="chmInput2" Width="auto" Text="="  VerticalAlignment="Center"/>
+
+            <TextBox x:Name="x_K2MNO4" Width="auto" Text="" PlaceholderText="填写化学式"/>
+            <TextBlock x:Name="plus1" Width="auto" Text="+"  VerticalAlignment="Center"/>
+            <TextBox x:Name="x_MNO2" Text="" PlaceholderText="填写系数"/>
+            <TextBlock x:Name="chm3" Width="auto" Text="MnO2"  VerticalAlignment="Center" />
+            <TextBlock x:Name="plus2" Width="auto" Text="+"  VerticalAlignment="Center"/>
+            <TextBox x:Name="x_O2" Text="" PlaceholderText="填写系数" />
+            <TextBlock x:Name="chm4" Width="auto" Text="O2"  VerticalAlignment="Center"/>
+            
+        </StackPanel>
+    </Grid>
+    
+</ContentDialog>
