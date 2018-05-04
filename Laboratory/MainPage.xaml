@@ -6,10 +6,10 @@
     xmlns:experiment ="using:Laboratory.exp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Loaded="Page_Loaded">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <NavigationView Name="NavigationView" SelectionChanged="NavigationView_SelectionChanged">
+        <NavigationView Name="NavigationView" SelectionChanged="NavigationView_SelectionChanged" AlwaysShowHeader="False">
             <NavigationView.MenuItems>
                 <NavigationViewItem Tag="Introduction" Name="Introduction" Content="Introduction" Icon="Home"></NavigationViewItem>
                 <NavigationViewItem Tag="Chemistry" Name="Chemistry" Content="Chemistry">
@@ -19,15 +19,17 @@
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Physics" Name="Physics" Content="Physics" Icon="Home"></NavigationViewItem>
             </NavigationView.MenuItems>
+
             <NavigationView.Content>
-                <Frame Name="MyFrame"></Frame>
+                <StackPanel>
+                <Frame Name="MyFrame" Height="700" MaxHeight="700"></Frame>
+                <Frame Name="QuestionFrame" Height="280" MaxHeight="280"></Frame>
+                </StackPanel>
+
             </NavigationView.Content>
             <NavigationView.AutoSuggestBox>
                 <AutoSuggestBox QueryIcon="Find"></AutoSuggestBox>
             </NavigationView.AutoSuggestBox>
-            <NavigationView.Header>
-                Laboratory
-            </NavigationView.Header>
         </NavigationView>
     </Grid>
 </Page>
