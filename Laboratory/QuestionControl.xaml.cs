@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Laboratory
 {
-    internal delegate void QuestionEventHandler();
+    internal delegate void QuestionEventHandler(int i);
 
     public sealed partial class QuestionControl : UserControl
     {
@@ -31,7 +31,7 @@ namespace Laboratory
             initQuestion();
             InitWithQuestion();
         }
-        int allpoints = 100;
+        public int allpoints = 100;
         int index = 0;
         Question tempQuestion = new Question();
         List<Question> questionList = new List<Question>();
@@ -46,7 +46,7 @@ namespace Laboratory
                 "水平向左下倾斜", 20);
             Question q2 = new Question("如何使用酒精灯加热？", "直接加热", "先进行预热", "以上二者都可行", "以上二者均不可行",
                 "先进行预热", 20);
-            Question q3 = new Question("关于收集气体的说法中，正确的是？", "从开始有气泡就收集气体", "等气泡产生速度稳定后收集", "以上二者均可行", "以上二者军不可行",
+            Question q3 = new Question("关于收集气体的说法中，正确的是？", "从开始有气泡就收集气体", "等气泡产生速度稳定后收集", "以上二者均可行", "以上二者均不可行",
                 "等气泡产生速度稳定后收集", 10);
             Question q4 = new Question("熄灭酒精灯之前应做什么？", "先将收集的气体密封", "先将导管从液体出拿出", "先把UWP作业写完", "先洗手",
                 "先将导管从液体出拿出", 10);
@@ -59,6 +59,8 @@ namespace Laboratory
         {
             tempQuestion = this.questionList[index];
             index++;
+            questionDescription.Text = tempQuestion.questionDescription;
+
             ChooseA.Background = new SolidColorBrush(Colors.AliceBlue);
             ChooseB.Background = new SolidColorBrush(Colors.AliceBlue);
             ChooseC.Background = new SolidColorBrush(Colors.AliceBlue);
@@ -88,7 +90,7 @@ namespace Laboratory
             if (is_right)
             {
                 choose.Background = new SolidColorBrush(Colors.LightGreen);
-                AnswerCorrectly();
+                AnswerCorrectly(index);
             }
             else
             {
@@ -107,6 +109,7 @@ namespace Laboratory
             if (is_right)
             {
                 choose.Background = new SolidColorBrush(Colors.LightGreen);
+                AnswerCorrectly(index);
             }
             else
             {
@@ -123,6 +126,7 @@ namespace Laboratory
             if (is_right)
             {
                 choose.Background = new SolidColorBrush(Colors.LightGreen);
+                AnswerCorrectly(index);
             }
             else
             {
@@ -139,6 +143,7 @@ namespace Laboratory
             if (is_right)
             {
                 choose.Background = new SolidColorBrush(Colors.LightGreen);
+                AnswerCorrectly(index);
             }
             else
             {

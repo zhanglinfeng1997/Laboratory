@@ -96,7 +96,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BlankPage2.xaml.cs" />
-    <Compile Include="Experiment001.xaml.cs">
+    <Compile Include="ComePage.xaml.cs">
+      <DependentUpon>ComePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Experiment\Models\Experiment001.xaml.cs">
       <DependentUpon>Experiment001.xaml</DependentUpon>
     </Compile>
     <Compile Include="ExperimentManager.cs" />
@@ -111,6 +114,9 @@
     <Compile Include="QuestionDialog.xaml.cs">
       <DependentUpon>QuestionDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -119,6 +125,7 @@
     <None Include="Laboratory_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Banner.jpg" />
     <Content Include="Design\题目.png" />
     <Content Include="Experiment\Image\daoguan.png" />
     <Content Include="Experiment\Image\diguan.png" />
@@ -152,7 +159,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Experiment001.xaml">
+    <Page Include="ComePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Experiment\Models\Experiment001.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +178,10 @@
     <Page Include="QuestionDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WelcomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

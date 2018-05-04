@@ -34,12 +34,18 @@ namespace Laboratory
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
+            switch((args.SelectedItem as NavigationViewItem).Tag)
+            {
+                case "Introduction": MyFrame.Navigate(typeof(WelcomePage));break;
+                case "Exp001": MyFrame.Navigate(typeof(Experiment001));break;
+                default: MyFrame.Navigate(typeof(ComePage));break;
 
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            MyFrame.Navigate(typeof(Experiment001));
+            MyFrame.Navigate(typeof(WelcomePage));
         }
     }
 }

@@ -44,41 +44,6 @@ namespace Laboratory
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) //旋转试管的动画,用于回答试管问题之后
-        {
-            TubeAni.Begin();
-            RubberAni.Begin();
-            PipeAni.Begin();
-            KMnO4.Visibility = Visibility.Visible;
-            TubeAni.Completed += (s, e1) => test();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e) //移动瓶子的动画,用于回答预热的问题之后
-        {
-            JarAni.Begin();
-            WaterAni.Begin();
-            WaterAni.Completed += (s, e1) => test();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e) //冒气泡的动画，用于回答何时收集的问题之后
-        {
-            Bubble.Visibility = Visibility.Visible;
-            BubbleUp.Begin();
-
-
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e) //收集完毕的动画,用于移走导管的问题后
-        {
-
-            BubbleUp.Stop();
-            Bubble.Visibility = Visibility.Collapsed;
-            Oxygen.Visibility = Visibility.Visible;
-            Air1.Begin();
-            O2.Begin();
-            O2.Completed += (s, e1) => test();
-
-        }
 
         private void Image_PointerPressed(object sender, PointerRoutedEventArgs e) //按下某一器材的事件
         {
@@ -125,10 +90,12 @@ namespace Laboratory
                 {
                     i.Visibility = Visibility.Collapsed;
                     TB001.Text = "Wrong! -5";
+                    QuestionArea.decreasePoint(5);
                     return;
                 }else               //正确器材
                 {
                     i.Visibility = Visibility.Collapsed;
+                    TB001.Text = "Correct!";
                     switch (i.Tag)
                     {
                         case "1":
@@ -192,8 +159,8 @@ namespace Laboratory
             MessageDialog d = new MessageDialog("器材组装完毕！");
            await  d.ShowAsync();
 
-           
 
+            QuestionArea.Visibility = Visibility.Visible;
 
 
             return 0;
@@ -205,45 +172,52 @@ namespace Laboratory
         {
             QuestionDialog dialog = new QuestionDialog("2", "K2MnO4", "1", "1");
            await dialog.ShowAsync();
+            QuestionArea.Visibility = Visibility.Collapsed;
             Title.Visibility = Visibility.Collapsed;
             ExpBorder.Visibility = Visibility.Visible;
             await NextSessionAsync();
-            QuestionArea.AnswerCorrectly += Animation1;
+            QuestionArea.AnswerCorrectly += selectAnimation;
 
 
 
         }
 
-        private void test()
+        /*
+         * private void test()
         {
             MessageDialog d = new MessageDialog("aha");
             d.ShowAsync();
         }
+        */
 
 
 
-
-        private void Animation1() //旋转试管的动画,用于回答试管问题之后
+        private async void Animation1() //旋转试管的动画,用于回答试管问题之后
         {
             TubeAni.Begin();
             RubberAni.Begin();
             PipeAni.Begin();
             KMnO4.Visibility = Visibility.Visible;
-           TubeAni.Completed += (s, e1) => QuestionArea.InitWithQuestion();
+            await Task.Delay(1000);
+            TubeAni.Completed += (s, e1) => QuestionArea.InitWithQuestion();
         }
 
-        private void Animation2() //移动瓶子的动画,用于回答预热的问题之后
+        private async void Animation2() //移动瓶子的动画,用于回答预热的问题之后
         {
+            Flame.Visibility = Visibility.Visible;
+            await Task.Delay(2000);
             JarAni.Begin();
             WaterAni.Begin();
-            WaterAni.Completed += (s, e1) => test();
+            await Task.Delay(2000);
+            WaterAni.Completed += (s, e1) => QuestionArea.InitWithQuestion();
         }
 
-        private void Animation3() //冒气泡的动画，用于回答何时收集的问题之后
+        private async void Animation3() //冒气泡的动画，用于回答何时收集的问题之后
         {
             Bubble.Visibility = Visibility.Visible;
             BubbleUp.Begin();
-
+            await Task.Delay(3000);
+            QuestionArea.InitWithQuestion();
 
         }
 
@@ -255,8 +229,32 @@ namespace Laboratory
             Oxygen.Visibility = Visibility.Visible;
             Air1.Begin();
             O2.Begin();
-            O2.Completed += (s, e1) => test();
+            O2.Completed += (s, e1) => showFinal();
 
+        }
+
+        private void selectAnimation(int index)
+        {
+            switch (index)
+            {
+                case 1: Animation1();break;
+                case 2: Animation2(); break;
+                case 3: Animation3(); break;
+                case 4: Animation4(); break;
+                default:break;
+            }
+        }
+
+        private async void showFinal()
+        {
+            await Task.Delay(2000);
+            MessageDialog d = new MessageDialog("你的分数是"+Convert.ToString(QuestionArea.allpoints));
+            await d.ShowAsync();
+            QuestionArea.Visibility = Visibility.Collapsed;
+            ExpArea.Visibility = Visibility.Collapsed;
+            Title.Visibility = Visibility.Visible;
+            StartExp.Content = "已完成！";
+            StartExp.IsEnabled = false;
         }
 
     }

@@ -10,25 +10,33 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <NavigationView Name="NavigationView" SelectionChanged="NavigationView_SelectionChanged" AlwaysShowHeader="False">
             <NavigationView.MenuItems>
-                <NavigationViewItem Tag="Introduction" Name="Introduction" Content="Introduction" Icon="Home"></NavigationViewItem>
-                <NavigationViewItem Tag="Chemistry" Name="Chemistry" Content="Chemistry">
+                <NavigationViewItem Tag="Introduction" Name="Introduction" Content="欢迎" Icon="Home"></NavigationViewItem>
+                <NavigationViewItemSeparator></NavigationViewItemSeparator>
+                <NavigationViewItem Tag="Exp001" Name="Exp001" Content="实验室制氧气" FontFamily="Segoe UI">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE1CE;"></FontIcon>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="Physics" Name="Physics" Content="Physics" Icon="Home"></NavigationViewItem>
+                <NavigationViewItem Tag="Exp002" Name="Exp002" Content="实验室制氢气" >
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE1CE;"></FontIcon>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="Exp003" Name="Exp003" Content="金属与硫酸的反应" >
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE1CE;"></FontIcon>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
             </NavigationView.MenuItems>
 
             <NavigationView.Content>
                 <StackPanel>
-                <Frame Name="MyFrame" Height="1080" MaxHeight="700"></Frame>
+                <Frame Name="MyFrame" Height="1080" MaxHeight="750"></Frame>
 
                 </StackPanel>
 
             </NavigationView.Content>
-            <NavigationView.AutoSuggestBox>
-                <AutoSuggestBox QueryIcon="Find"></AutoSuggestBox>
-            </NavigationView.AutoSuggestBox>
+
         </NavigationView>
     </Grid>
 </Page>

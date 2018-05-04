@@ -76,7 +76,8 @@
                 </Polyline>
                 <Polyline Name="Alcohol" StrokeThickness="2" Stroke="Black" Visibility="Collapsed"
                       Points="0,80,140,80" Canvas.Left="229" Canvas.Top="255"/>
-                <Image Source="/Experiment/Image/flame.png" Canvas.Left="261" Canvas.Top="201"></Image>
+                <Image Name="Flame" Source="/Experiment/Image/flame.png" Canvas.Left="261" 
+                       Canvas.Top="201" Visibility="Collapsed" ></Image>
                 <Polyline Name="Tube" Stroke="Black" StrokeThickness="4" Visibility="Collapsed"
                       Points="4,0,4,160,10,170,20,170,28,160,28,0 " Canvas.Left="345" Canvas.Top="103" Height="174" Width="33" RenderTransformOrigin="0.471,0.188" UseLayoutRounding="False" d:LayoutRounding="Auto"  >
                     <Polyline.RenderTransform>
@@ -200,12 +201,8 @@
                         </Storyboard>
                     </TextBlock.Resources>
                 </TextBlock>
-                <Button Click="Button_Click">0</Button>
-                <Button Click="Button_Click_1" Canvas.Left="37" Canvas.Top="4">1</Button>
-                <Button Click="Button_Click_2" Canvas.Left="75" Canvas.Top="6">2</Button>
-                <Button Click="Button_Click_3" Canvas.Left="111" Canvas.Top="6">3</Button>
-              
-     
+
+
             </Canvas>
             <local:QuestionControl x:Name="QuestionArea" VerticalAlignment="Bottom" Canvas.Left="300"  Canvas.Top="655" />
         </Canvas>
