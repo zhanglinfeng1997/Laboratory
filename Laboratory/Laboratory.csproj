@@ -95,9 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BlankPage2.xaml.cs">
-      <DependentUpon>BlankPage2.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="BlankPage2.xaml.cs" />
     <Compile Include="Experiment001.xaml.cs">
       <DependentUpon>Experiment001.xaml</DependentUpon>
     </Compile>
@@ -105,6 +103,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -143,8 +142,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="BlankPage2.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Experiment001.xaml">
       <SubType>Designer</SubType>
