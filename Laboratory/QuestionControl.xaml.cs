@@ -23,7 +23,21 @@ namespace Laboratory
     public sealed partial class QuestionControl : UserControl
     {
         internal event QuestionEventHandler AnswerCorrectly;
-
+        public string getChoiceRecord()
+        {
+            string record = "";
+            for (int i = 0; i < questionList.Capacity; i++)
+            {
+                record += "问题描述： " + questionList[i].questionDescription+"\n";
+                record += "您的选择：";
+                for (int j = 0; j < questionList[i].choiceRecord.Capacity; j++)
+                {
+                    record += questionList[i].choiceRecord[j] + "\n";
+                }
+                record += "正确答案：" + questionList[i].RightAnswer+"\n\n";
+            }
+            return record;
+        }
         public QuestionControl()
         {
 
@@ -87,6 +101,7 @@ namespace Laboratory
         {
             var choose = (Button)sender;
             Boolean is_right = IsRight(ChooseA.Content as string);
+            questionList[index - 1].choiceRecord.Add(choose.Content as string);
             if (is_right)
             {
                 choose.Background = new SolidColorBrush(Colors.LightGreen);
@@ -105,7 +120,7 @@ namespace Laboratory
         {
             var choose = (Button)sender;
             Boolean is_right = IsRight(ChooseB.Content as string);
-
+            questionList[index - 1].choiceRecord.Add(choose.Content as string);
             if (is_right)
             {
                 choose.Background = new SolidColorBrush(Colors.LightGreen);
@@ -123,6 +138,7 @@ namespace Laboratory
         {
             var choose = (Button)sender;
             Boolean is_right = IsRight(ChooseC.Content as string);
+            questionList[index - 1].choiceRecord.Add(choose.Content as string);
             if (is_right)
             {
                 choose.Background = new SolidColorBrush(Colors.LightGreen);
@@ -138,6 +154,7 @@ namespace Laboratory
 
         private void ChooseD_Click(object sender, RoutedEventArgs e)
         {
+            questionList[index - 1].choiceRecord.Add(choose.Content as string);
             var choose = (Button)sender;
             Boolean is_right = IsRight(ChooseD.Content as string);
             if (is_right)

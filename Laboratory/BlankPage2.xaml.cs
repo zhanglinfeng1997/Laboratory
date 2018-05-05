@@ -80,9 +80,11 @@ namespace Laboratory
             if (is_right)
             {
                 choose.Background = new SolidColorBrush(Colors.LightGreen);
+               
             }
             else
             {
+                
                 choose.Background = new SolidColorBrush(Colors.LightGray);
                 allpoints = allpoints - tempQuestion.Points;
                 PointsAll.Text = "当前分数：" + Convert.ToString(allpoints);
