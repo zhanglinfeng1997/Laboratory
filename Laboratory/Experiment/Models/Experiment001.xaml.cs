@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Input;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -248,13 +249,18 @@ namespace Laboratory
         private async void showFinal()
         {
             await Task.Delay(2000);
-            MessageDialog d = new MessageDialog("你的分数是"+Convert.ToString(QuestionArea.allpoints));
+            MessageDialog d = new MessageDialog("你的分数是"+Convert.ToString(QuestionArea.allpoints)+"\n"+ QuestionArea.getChoiceRecord());
             await d.ShowAsync();
             QuestionArea.Visibility = Visibility.Collapsed;
             ExpArea.Visibility = Visibility.Collapsed;
             Title.Visibility = Visibility.Visible;
             StartExp.Content = "已完成！";
             StartExp.IsEnabled = false;
+            StorageFolder folder;
+            folder = ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("record-exp001.txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(sampleFile, "你的分数是" + Convert.ToString(QuestionArea.allpoints) + "\n" + QuestionArea.getChoiceRecord());
         }
 
     }

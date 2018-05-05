@@ -26,11 +26,11 @@ namespace Laboratory
         public string getChoiceRecord()
         {
             string record = "";
-            for (int i = 0; i < questionList.Capacity; i++)
+            for (int i = 0; i < questionList.Count; i++)
             {
                 record += "问题描述： " + questionList[i].questionDescription+"\n";
                 record += "您的选择：";
-                for (int j = 0; j < questionList[i].choiceRecord.Capacity; j++)
+                for (int j = 0; j < questionList[i].choiceRecord.Count; j++)
                 {
                     record += questionList[i].choiceRecord[j] + "\n";
                 }
@@ -154,8 +154,9 @@ namespace Laboratory
 
         private void ChooseD_Click(object sender, RoutedEventArgs e)
         {
-            questionList[index - 1].choiceRecord.Add(choose.Content as string);
             var choose = (Button)sender;
+            questionList[index - 1].choiceRecord.Add(choose.Content as string);
+            
             Boolean is_right = IsRight(ChooseD.Content as string);
             if (is_right)
             {

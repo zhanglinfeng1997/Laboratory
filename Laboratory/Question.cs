@@ -15,7 +15,7 @@ namespace Laboratory
         public String ChoiceC = "选项C";
         public String ChoiceD = "选项D";
         public String RightAnswer = "正确答案";
-        public List<string> choiceRecord = new List<string>;
+        public List<string> choiceRecord = new List<string>();
         public int Points = 10;
         public Question(){}
         public Question(String description, String A, String B, String C, String D, String right,int points) {
